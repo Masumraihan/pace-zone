@@ -1,0 +1,293 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.before-line {
+  @apply before:w-9 before:border-2 before:border-danger before:h-1 before:absolute before:-left-12 before:top-1/2 before:transform before:-translate-y-1/2 before:rounded;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  height: 100%;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-text p span.text-in {
+  display: block;
+  animation: textIn 0.4s ease;
+}
+.home-text p span.text-out {
+  animation: textOut 0.4s ease;
+}
+@keyframes textIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+@keyframes textOut {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-color: #00e2c4;
+  display: flex;
+  transform-origin: center;
+  transition: width 0.3s ease 0s, left 0.3s;
+  bottom: 0;
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.slider::before,
+.slider::after {
+  position: absolute;
+  background-image: linear-gradient(
+    to right,
+    rgb(218, 218, 218) 0%,
+    rgba(214, 214, 214, 0.096) 100%
+  );
+  content: "";
+  height: 100%;
+  width: 3%;
+  z-index: 2;
+  pointer-events: none;
+}
+.slider::before {
+  left: 0;
+  top: 0;
+}
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.trending-course-slider::after,
+.trending-course-slider::before {
+  position: absolute;
+  background-image: linear-gradient(to right, rgb(34, 34, 34) 0%, rgba(49, 49, 49, 0) 100%);
+  content: "";
+  height: 100%;
+  overflow: hidden;
+  width: 5%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.trending-course-slider::before {
+  left: 0;
+  top: 0;
+}
+
+.trending-course-slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slide-track {
+  width: calc(150px * 20);
+  display: flex;
+  justify-content: space-between;
+  animation: scroll 20s linear infinite;
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.slide:hover {
+  transform: scale(1.2);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(calc(-150px * 10));
+  }
+}
+
+.footer {
+  margin-top: auto;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+::-webkit-scrollbar:vertical {
+  width: 10px !important;
+  max-width: 10px;
+}
+::-webkit-scrollbar:horizontal {
+  max-height: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  width: 12px;
+  height: 16px;
+  border: 3px solid #330e83;
+  background-color: #fff;
+}
+::-webkit-scrollbar-track {
+  background-color: #330e83;
+}
+
+.wave {
+  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s; /* Change to speed up or slow down */
+  animation-iteration-count: infinite; /* Never stop waving :) */
+  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  } /* The following five values can be played with to make the waving more or less extreme */
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  } /* Reset for the last half to pause */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Trending courses Carousel */
+.dots {
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  border: none;
+  width: 10px;
+  height: 10px;
+  background: #c5c5c5;
+  border-radius: 50%;
+  margin: 0 5px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.dot:focus {
+  outline: none;
+}
+
+.dot.active {
+  background: #330e83;
+}
+
+.slide-in {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #330e83;
+  transform-origin: left;
+}
+
+.slide-out {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #330e83;
+  transform-origin: right;
+}
+
+.custom-state-select::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+.custom-state-select::-webkit-scrollbar:vertical {
+  width: 12px !important;
+  max-width: 12px;
+}
+.custom-state-select::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  width: 12px;
+  height: 16px;
+  border: 3px solid #e2e8f0;
+  background-color: #330e83;
+}
+
+.custom-state-select::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.border {
+  border: 0;
+}
